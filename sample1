@@ -1,0 +1,18 @@
+## Fix missing data using SimpleImputer
+import numpy as np
+ 
+# Importing the SimpleImputer class
+from sklearn.impute import SimpleImputer
+ 
+# Imputer object using the mean strategy and
+# missing_values type for imputation
+imputer = SimpleImputer(missing_values = np.nan,
+                        strategy ='mean')  ## strategy can be 'mean', 'median', 'most_frequent' and 'constant' ## 
+                        
+                        ## if it is a dataframe, missing_values=pd.NA
+                        
+                        
+                   
+                
+## Fix missing data using pandas.DataFrame.dropna
+DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
