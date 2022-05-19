@@ -16,3 +16,40 @@ imputer = SimpleImputer(missing_values = np.nan,
                 
 ## Fix missing data using pandas.DataFrame.dropna
 DataFrame.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)
+
+## Print out the features of loan_data along with the number of missing values
+
+# Import modules
+import numpy as np
+import pandas as pd
+
+# Print missing values
+print(loan_data.isna().sum())
+
+
+##Drop the rows with missing values and print the percentage of rows remaining.
+
+# Drop rows with missing values
+dropNArows = loan_data.dropna(axis=0)
+
+# Print percentage of rows remaining
+print(dropNArows.shape[0]/loan_data.shape[0] * 100)
+
+##Drop the columns with missing values and print the percentage of rows remaining.
+# Drop columns with missing values
+dropNAcols = loan_data.dropna(axis=1)
+
+# Print percentage of columns remaining
+print(dropNAcols.shape[1]/loan_data.shape[1] * 100)
+
+## Impute loan_data's missing values with 0 into loan_data_filled
+Compare 'Credit Score' using .describe() before imputation using loan_data and after using loan_data_filled.
+
+# Fill missing values with zero
+loan_data_filled = loan_data.fillna(0)
+
+# Examine 'Credit Score' before
+print(loan_data['Credit Score'].describe())
+
+# Examine 'Credit Score' after
+print(loan_data_filled['Credit Score'].describe())
